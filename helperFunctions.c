@@ -36,11 +36,11 @@ int LoadDataFromFSMDef(char* filename, int currentStates[], char inputs[], int n
     int isZeroThere = 0;                                        //Checks if  there is an initial state 0
     int index = 0;
     int cur;                                                    //Holds value of current state in the line.
-    char input;                                                 //Holds value of input in the line. character from a-z
+    char input;                                                 //Holds value of input in the line. character from a-z or A-Z
     int next;                                                   //Holds value of next in the line.
     int match;                                                  //Checks if the line matches the expected format
     while ((match = fscanf(fp, "%d:%c>%d", &cur, &input,&next)) != EOF){
-      if (match && ((input>='a' && input<='z')||(input>='A' && input<='Z'))){ //check also if the input is a char between a-z
+      if (match && ((input>='a' && input<='z')||(input>='A' && input<='Z'))){ //check also if the input is a char between a-z or A-Z
             currentStates[index]=cur;
             if (currentStates[index]==0)
                 isZeroThere=1;
