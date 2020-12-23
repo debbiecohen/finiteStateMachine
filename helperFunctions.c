@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 
 int CountLines(char *filename){
     /* returns the number of lines in the fsm definition,
@@ -49,9 +50,11 @@ int LoadDataFromFSMDef(char* filename, int currentStates[], char inputs[], int n
             index++;
         }
         else{
-            printf("ERROR: the format of fsm definition has an error, should be cur:input>next, "
-                   "or invalid character used as input\n");
-            return 1;
+	  if (!(input>='a' && input<='z')||(input>='A' && input<='Z'))
+	     printf("ERROR invalid character used as input in the fsm definition\n");
+	  else
+	    printf("ERROR: the format of fsm definition has an error, should be cur:input>next\n");
+          return 1;
         }
     }
     fclose(fp); //close the .fsm file

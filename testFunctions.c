@@ -70,6 +70,7 @@ void testAll(){
     testLoadDataFromFSMDefRetValue("testLoadData.fsm", 0); //if the loading succeeds should return 0
     testLoadDataFromFSMDefRetValue("testLoadDataFormatError.fsm", 1); //Should fail because the file has an error in the format
     testLoadDataFromFSMDefRetValue("testLoadDataNo0State.fsm", 1); //no initial state
+    testLoadDataFromFSMDefRetValue("testLoadDataInputError.fsm", 1); //Should fail because the file has anan invalid character
     testExecuteSteps("noExistsFile.inputs", 1); //error because file doesnt exist
     testExecuteSteps("test1Wrong.inputs", 1); //input a z that doesnt take to any state
     testExecuteSteps("test1WrongNoValidChar.inputs", 1); //error because input is not a char from a-z
